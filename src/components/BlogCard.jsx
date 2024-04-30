@@ -8,7 +8,7 @@ const BlogCard = ({ blogs }) => {
     <div className="cards py-6 px-6 flex flex-wrap max-w-6xl">
       {blogs.map((blog, i) => (
         <Link key={i}>
-          <div className="card w-[300px] h-[320px] border-gray-200 border-2 p-2 rounded-lg shadow-lg">
+          <div className="card w-[300px] h-[320px] border-gray-200 border-2 p-2 rounded-lg shadow-lg m-2">
             <div>
               <img className="w-70 rounded-lg pb-1" src={blog.image} />
             </div>
