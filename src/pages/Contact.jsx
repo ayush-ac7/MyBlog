@@ -1,7 +1,11 @@
 const Contact = () => {
   return (
     <div>
-      <h1>Contact</h1>
+      <div className="bg-black py-24 px-4 mx-auto">
+        <div className="text-white text-center">
+          <h1 className="text-6xl font-bold pb-6">Contact Page</h1>
+        </div>
+      </div>
     </div>
   );
 };
