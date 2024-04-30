@@ -1,11 +1,10 @@
-import { PiPlaceholder } from "react-icons/pi";
 import { FaRegUserCircle } from "react-icons/fa";
 import { RiLockPasswordLine } from "react-icons/ri";
 
 const Signup = () => {
   return (
     <div className=" p-4 m-4 text-center h-screen w-full ">
-      <h1 className="text-5xl tracking-widest font-medium font-bold mb-10 text-sky-300">
+      <h1 className="text-5xl tracking-widest font-bold mb-10 text-sky-300">
         MyBlog
       </h1>
       <div className="border-gray-200 border-[1px] shadow-xl w-[330px] h-[320px] mx-auto py-3 my-3">
@@ -50,7 +49,7 @@ const Signup = () => {
             FOROGT PASSWORD?
           </h2>
           <h2 className="text-sky-300 font-semibold text-sm">
-            NO ACCOUNT SIGN UP
+            NO ACCOUNT? <span className="font-extrabold cursor-pointer">SIGN UP</span> 
           </h2>
         </form>
       </div>
