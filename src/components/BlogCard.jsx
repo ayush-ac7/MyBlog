@@ -1,11 +1,13 @@
 import { FaUserPen } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-const BlogCard = ({ blogs }) => {
-  const filteredBlogs = blogs;
+const BlogCard = ({ blogs, currentPage, selectedCategory, pageSize }) => {
+  const filteredBlogs = blogs
+    .filter((blogs) => !selectedCategory || blogs.category === selectedCategory)
+    .slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
   return (
-    <div className="cards py-6 px-6 flex flex-wrap max-w-6xl">
+    <div className="cards py-6 px-6 flex flex-wrap w-full">
       {blogs.map((blog, i) => (
         <Link key={i}>
           <div className="card w-[300px] h-[320px] border-gray-200 border-2 p-2 rounded-lg shadow-lg m-2">

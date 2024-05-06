@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 const blog = require("./src/utils/BlogsData.json");
 
-const port = process.env.PORT || 5000;
+const port = 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -13,11 +13,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/blog", (req, res) => {
-    
   res.send(blog);
-  
 });
-
 
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);

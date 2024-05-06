@@ -3,7 +3,7 @@ import BlogCard from "../components/BlogCard";
 import Banner from "../components/Banner";
 import Pagination from "./Pagination";
 
-const Blogs = () => {
+const BlogPage = () => {
   const [blogs, setBlogs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 12; //blogs per page
@@ -40,11 +40,21 @@ const Blogs = () => {
 
   return (
     <div>
-      <div className="bg-black py-24 px-4 mx-auto">
-        <div className="text-white text-center">
-          <h1 className="text-6xl font-bold pb-6">Blog Page</h1>
-        </div>
+        {/* blogs category  */}
+      <div className="links max-w-7xl mx-auto mt-5 border-gray-200 border-b-2 pb-4">
+        {["All", "Startups", "Security", "AI", "Apps", "Tech"].map(
+          (item, i) => (
+            <a
+              key={i}
+              className="cursor-pointer mr-16 text-md font-semibold hover:text-orange-500"
+            >
+              {item}
+            </a>
+          )
+        )}
       </div>
+
+      {/* blog cards */}
 
       <div className="cards">
         <BlogCard
@@ -54,6 +64,8 @@ const Blogs = () => {
           pageSize={pageSize}
         />
       </div>
+
+      {/* pagination */}
 
       <div>
         <Pagination
@@ -67,4 +79,4 @@ const Blogs = () => {
   );
 };
 
-export default Blogs;
+export default BlogPage;
