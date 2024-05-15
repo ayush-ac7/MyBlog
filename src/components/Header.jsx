@@ -4,9 +4,9 @@ import { TiThMenu } from "react-icons/ti";
 const Header = () => {
   const navItems = [
     { path: "/", link: "Home" },
-    { path: "/about", link: "About" },
+    { path: "/addblog", link: "Add Blog" },
     { path: "/blogs", link: "Blogs" },
-    { path: "/contact", link: "Contact" },
+    // { path: "/myblogs", link: "My Blogs" },
   ];
 
   return (

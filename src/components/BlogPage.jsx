@@ -27,56 +27,7 @@ const BlogPage = () => {
     fetchData();
   }, [currentPage, pageSize, selectedCategory]);
 
-  //page changing btn
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category);
-    setCurrentPage(1);
-    setActiveCategory(category);
-  };
-
-  return (
-    <div>
-        {/* blogs category  */}
-      <div className="links max-w-7xl mx-auto mt-5 border-gray-200 border-b-2 pb-4">
-        {["All", "Startups", "Security", "AI", "Apps", "Tech"].map(
-          (item, i) => (
-            <a
-              key={i}
-              className="cursor-pointer mr-16 text-md font-semibold hover:text-orange-500"
-            >
-              {item}
-            </a>
-          )
-        )}
-      </div>
-
-      {/* blog cards */}
-
-      <div className="cards">
-        <BlogCard
-          blogs={blogs}
-          currentPage={currentPage}
-          selectedCategory={selectedCategory}
-          pageSize={pageSize}
-        />
-      </div>
-
-      {/* pagination */}
-
-      <div>
-        <Pagination
-          onPageChange={handlePageChange}
-          blogs={blogs}
-          currentPage={currentPage}
-          pageSize={pageSize}
-        />
-      </div>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default BlogPage;
