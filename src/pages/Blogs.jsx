@@ -1,23 +1,14 @@
 import { useEffect, useState } from "react";
 import BlogCard from "../components/BlogCard";
 import Banner from "../components/Banner";
-import Pagination from "./Pagination";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 12; //blogs per page
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [isactive, setActiveCategory] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       //filter by category
-      let url = `http://localhost:5000/blog?page${currentPage}&${pageSize}`;
-
-      if (selectedCategory) {
-        url += `&category=${selectedCategory}`;
-      }
+      let url = `http://localhost:5000/blog`;
 
       const response = await fetch(url);
       const data = await response.json();
@@ -25,18 +16,7 @@ const Blogs = () => {
     };
 
     fetchData();
-  }, [currentPage, pageSize, selectedCategory]);
-
-  //page changing btn
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category);
-    setCurrentPage(1);
-    setActiveCategory(category);
-  };
+  }, []);
 
   return (
     <div>
@@ -47,21 +27,7 @@ const Blogs = () => {
       </div>
 
       <div className="cards">
-        <BlogCard
-          blogs={blogs}
-          currentPage={currentPage}
-          selectedCategory={selectedCategory}
-          pageSize={pageSize}
-        />
-      </div>
-
-      <div>
-        <Pagination
-          onPageChange={handlePageChange}
-          blogs={blogs}
-          currentPage={currentPage}
-          pageSize={pageSize}
-        />
+        <BlogCard blogs={blogs} />
       </div>
     </div>
   );
