@@ -1,21 +1,29 @@
 import { useState } from "react";
+import MyBlogs from "./MyBlogs";
 
 const AddBlog = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [author, setAuthor] = useState("");
+  const [submitted, setSubmitted] = useState("");
   const [isPending, setIsPending] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const blog = { title, description, author };
+    setSubmitted(blog);
     setIsPending(true);
     console.log(blog);
+    setTitle("");
+    setDescription("");
+    setAuthor("");
   };
+
+  const blog = { title, description, author };
 
   return (
     <div>
-      <div className="bg-black py-16 px-4 mx-auto">
+      <div className="bg-black py-10 px-4 mx-auto">
         <div className="text-white text-center">
           <h1 className="text-6xl text-orange-500 font-bold pb-6">
             Write your Blog...
@@ -53,12 +61,14 @@ const AddBlog = () => {
             />
           </div>
           <div>
-            <button className="bg-blue-500 py-2 rounded-xl px-7 m-4 text-white">
+            <button className="bg-blue-500 py-2 rounded-xl px-7 m-4 text-white hover:opacity-80">
               Submit
             </button>
           </div>
         </form>
       </div>
+
+      {submitted && <MyBlogs submitValue={submitted} />}
     </div>
   );
 };

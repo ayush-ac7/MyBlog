@@ -13,12 +13,12 @@ const Header = () => {
     <div className="bg-black p-3">
       <div className="flex items-center justify-between">
         <h1 className="text-white font-bold text-4xl italic">MyBlog</h1>
-        <div className="links">
+        <div className="links flex">
           {navItems.map(({ path, link }) => (
             <Link
               to={path}
               key={link}
-              className="text-white mr-9 cursor-pointer "
+              className="hidden md:flex  text-white mr-14 cursor-pointer "
             >
               {link}
             </Link>
