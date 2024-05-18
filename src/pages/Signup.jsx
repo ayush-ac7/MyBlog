@@ -1,9 +1,18 @@
 import { FaRegUserCircle } from "react-icons/fa";
 import { RiLockPasswordLine } from "react-icons/ri";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
     <div className=" p-4 m-4 text-center h-screen w-full ">
+      <Link to={"/"} className="absolute flex items-center ">
+        <span>
+          <IoMdArrowRoundBack />
+        </span>
+        <span className="ml-1 text-xl font-semibold">Back</span>
+      </Link>
+
       <h1 className="text-5xl tracking-widest font-bold mb-10 text-sky-300">
         MyBlog
       </h1>
@@ -49,7 +58,8 @@ const Signup = () => {
             FOROGT PASSWORD?
           </h2>
           <h2 className="text-sky-300 font-semibold text-sm">
-            NO ACCOUNT? <span className="font-extrabold cursor-pointer">SIGN UP</span> 
+            NO ACCOUNT?{" "}
+            <span className="font-extrabold cursor-pointer">SIGN UP</span>
           </h2>
         </form>
       </div>
