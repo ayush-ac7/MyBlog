@@ -6,7 +6,7 @@ const Header = () => {
     { path: "/", link: "Home" },
     { path: "/addblog", link: "Add Blog" },
     { path: "/blogs", link: "Blogs" },
-    // { path: "/myblogs", link: "My Blogs" },
+     //{ path: "/myblogs", link: "My Blogs" },
   ];
 
   return (

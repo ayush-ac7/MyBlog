@@ -1,22 +1,28 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+//import {useHistory} from "react-router-dom";
 import MyBlogs from "./MyBlogs";
+import { createContext } from "react";
+import { BlogContext } from "../utils/BlogContext";
+
 
 const AddBlog = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [author, setAuthor] = useState("");
   const [submitted, setSubmitted] = useState("");
-  const [isPending, setIsPending] = useState(false);
+  const { addBlog } = useContext(BlogContext);
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const blog = { title, description, author };
+    addBlog({ title, description, author });
     setSubmitted(blog);
-    setIsPending(true);
     console.log(blog);
     setTitle("");
     setDescription("");
     setAuthor("");
+    //history.push("/blogs");
   };
 
   const blog = { title, description, author };
@@ -32,7 +38,10 @@ const AddBlog = () => {
       </div>
 
       <div className="write-blog text-center p-2 my-4 ">
-        <form onSubmit={handleSubmit} className="border-black border-2 rounded-xl shadow-2xl max-w-4xl mx-auto p-2">
+        <form
+          onSubmit={handleSubmit}
+          className="border-black border-2 rounded-xl shadow-2xl max-w-4xl mx-auto p-2"
+        >
           <div>
             <input
               type="text"
@@ -44,7 +53,7 @@ const AddBlog = () => {
           </div>
           <div>
             <textarea
-              className="w-[350px] h-[200px] border-[2px] rounded-lg border-gray-300 bg-gray-200  my-2 p-2 w-3/5"
+              className="h-[200px] border-[2px] rounded-lg border-gray-300 bg-gray-200  my-2 p-2 w-3/5"
               type="text"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
@@ -68,7 +77,7 @@ const AddBlog = () => {
         </form>
       </div>
 
-      {submitted && <MyBlogs submitValue={submitted} />}
+      {/* {submitted && <MyBlogs submitValue={submitted} />} */}
     </div>
   );
 };
